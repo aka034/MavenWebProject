@@ -31,7 +31,7 @@ pipeline{
                      type: 'war'
                 ]
             ], 
-            credentialsId: 'nexus-cred', 
+            credentialsId: 'nexus-creds', 
             groupId: 'Deep123', 
             nexusUrl: '3.88.190.153:8081', 
             nexusVersion: 'nexus3', 
