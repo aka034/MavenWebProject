@@ -21,5 +21,24 @@ pipeline{
                 }
             }
         } 
+        stage('Upload War file to Nexus'){
+            steps{
+             nexusArtifactUploader artifacts: [
+                 [
+                     artifactId: 'MavenWebProject', 
+                     classifier: '', 
+                     file: 'target/Deepshikha.war', 
+                     type: 'war'
+                ]
+            ], 
+            credentialsId: 'nexus-cred', 
+            groupId: 'Deep123', 
+            nexusUrl: '3.88.190.153:8081', 
+            nexusVersion: 'nexus3', 
+            protocol: 'http', 
+            repository: 'Newrepo', 
+            version: '2.0.0'
+            }
+        }
     }
 }
