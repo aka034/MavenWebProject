@@ -14,14 +14,14 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
-       stage('Generate sonarqube-analysis'){
+       /* stage('Generate sonarqube-analysis'){
             steps{
                 withSonarQubeEnv(installationName: 'sonarqube-8', credentialsId: 'sonarqube-creds') {
                  sh 'mvn sonar:sonar'
                 }
             }
-        } 
-        stage('Upload War file to Nexus'){
+        } /*
+       /* stage('Upload War file to Nexus'){
             steps{
              nexusArtifactUploader artifacts: [
                  [
@@ -39,7 +39,7 @@ pipeline{
             repository: 'Calciapp', 
             version: '2.0.0'
             }
-        }
+        } */
         stage('Deploy War file to Tommcat'){
             steps{
                sshagent(['tomcat-creds']) {
