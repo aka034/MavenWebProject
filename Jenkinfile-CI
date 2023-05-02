@@ -40,5 +40,17 @@ pipeline{
             version: '2.0.0'
             }
         }
+        stage('Deploy War file to Tommcat'){
+            steps{
+               sshagent(['tomcat-creds']) {
+                  sh """
+                    scp -o StrictHostKeyChecking=no target/*.war ec2-user@54.211.120.3:/opt/tomcat-9/webapps
+                    ssh -o StrictHostKeyChecking=no ec2-user@54.211.120.37 /opt/tomcat-9/bin/shutdown.sh
+                    ssh -o StrictHostKeyChecking=no ec2-user@54.211.120.37 /opt/tomcat-9/bin/startup.sh
+					
+		          """          
+               }
+            }
+        }
     }
 }
