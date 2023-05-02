@@ -16,7 +16,7 @@ pipeline{
         }
        stage('Generate sonarqube-analysis'){
             steps{
-                withSonarQubeEnv(installationName: 'sonarqube-8', credentialsId: 'sonarqube-cred') {
+                withSonarQubeEnv(installationName: 'sonarqube-8', credentialsId: 'sonarqube-creds') {
                  sh 'mvn sonar:sonar'
                 }
             }
@@ -33,10 +33,10 @@ pipeline{
             ], 
             credentialsId: 'nexus-creds', 
             groupId: 'Deep123', 
-            nexusUrl: '3.88.190.153:8081', 
+            nexusUrl: '44.201.215.224:8081', 
             nexusVersion: 'nexus3', 
             protocol: 'http', 
-            repository: 'Newrepo', 
+            repository: 'Calciapp', 
             version: '2.0.0'
             }
         }
