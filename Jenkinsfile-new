@@ -18,7 +18,7 @@ pipeline {
 	stage("Sonarqube analysis"){
             steps{
                 script{
-                withSonarQubeEnv(installationName: 'sonarqube-8', credentialsId: 'sonarqube-cred') {
+                withSonarQubeEnv(installationName: 'sonarqube-8', credentialsId: 'sonarqube-creds') {
                       sh 'mvn sonar:sonar'
                   }
                    timeout(5) {
