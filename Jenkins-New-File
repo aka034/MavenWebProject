@@ -30,11 +30,12 @@ pipeline {
                 }
             }
         }
-        stage('Upload War file to Nexus'){
+        stage('Nexus uploader') {
             steps{
-            sh 'mvn clean deploy'    
-        } 
-     }
+                sh 'mvn clean deploy'
+            }
+        }
+	}
 	  post{
         always{
             echo "========always========"
