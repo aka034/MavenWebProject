@@ -1,9 +1,9 @@
 node {
     try{
-     def mavenHome =  tool name: "maven", type: "maven"
+     def mavenHome =  tool name: "maven3", type: "maven"
      def mavenCMD = "${mavenHome}/bin/mvn"
     stage('git checkout') {
-        git url:'https://github.com/bcreddydevops/mavenweb-demo.git', branch: 'main'
+        git url:'https://github.com/aka034/MavenWebProject.git', branch: 'main'
     }
     stage('Maven Build') {
          sh "${mavenCMD} clean package"
