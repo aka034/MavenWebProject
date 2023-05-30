@@ -23,7 +23,7 @@ node {
        sh "${mavenCMD} clean deploy"
     }
     stage("Deploy to Tomcat Server"){
-        sshagent(['tomcat-credentials']) {
+        sshagent(['tomcat-creds']) {
                   sh """
                     scp -o StrictHostKeyChecking=no target/*.war ubuntu@16.16.143.200 /opt/tomcat3/webapps
                     ssh -o StrictHostKeyChecking=no ubuntu@16.16.143.200 /opt/tomcat3/bin/shutdown.sh
