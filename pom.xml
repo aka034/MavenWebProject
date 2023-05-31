@@ -4,7 +4,7 @@
   <groupId>Deep123</groupId>
   <artifactId>MavenWebProject</artifactId>
   <packaging>war</packaging>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
   <name>MavenWebProject Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
